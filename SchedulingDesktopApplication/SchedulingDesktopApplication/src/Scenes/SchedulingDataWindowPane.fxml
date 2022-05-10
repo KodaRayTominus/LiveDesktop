@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="root" prefHeight="603.0" prefWidth="1374.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SchedulingDataWindowPaneController">
+    <MenuBar prefWidth="820.0">
+        <Menu mnemonicParsing="false" text="%menu.customers">
+            <MenuItem mnemonicParsing="false" onAction="#viewCustomers" text="%menu.customers.items.view" />
+         <MenuItem disable="true" mnemonicParsing="false" text="%menu.customers.items.add" />
+         <MenuItem disable="true" mnemonicParsing="false" text="%menu.customers.items.save" />
+         <MenuItem disable="true" mnemonicParsing="false" text="%menu.customers.items.delete" />
+        </Menu>
+        <Menu mnemonicParsing="false" text="%menu.appointments">
+         <MenuItem disable="true" mnemonicParsing="false" text="%menu.appointments.items.view" />
+            <MenuItem mnemonicParsing="false" onAction="#addAppointment" text="%menu.appointments.items.add" />
+            <MenuItem mnemonicParsing="false" onAction="#saveAppointmentData" text="%menu.appointments.items.save" />
+            <MenuItem mnemonicParsing="false" onAction="#deleteAppointment" text="%menu.appointments.items.delete" />
+        </Menu>
+        <Menu mnemonicParsing="false" text="%menu.reports">
+            <MenuItem mnemonicParsing="false" onAction="#getReportAppointments" text="%menu.reports.items.appointments" />
+            <MenuItem mnemonicParsing="false" onAction="#getReportContactSchedule" text="%menu.reports.items.contactSchedule" />
+            <MenuItem mnemonicParsing="false" onAction="#getReportCustomerHistory" text="%menu.reports.items.customerHistory" />
+        </Menu>
+        <Menu mnemonicParsing="false" text="%menu.help">
+            <MenuItem mnemonicParsing="false" onAction="#openJavaDoc" text="%menu.help.items.javaDoc" />
+        </Menu>
+    </MenuBar>
+    <AnchorPane prefHeight="589.0" prefWidth="1225.0">
+        <TableView fx:id="schedulingDataTable" layoutX="20.0" layoutY="65.0" prefHeight="480.0" prefWidth="992.0">
+            <columns>
+                <TableColumn id="Appointment_ID" prefWidth="115.0" text="%table.appointments.columns.appointmentID" />
+                <TableColumn id="Title" prefWidth="68.0" text="%table.appointments.columns.title" />
+                <TableColumn id="Description" prefWidth="100.0" text="%table.appointments.columns.description" />
+                <TableColumn id="Location" minWidth="0.0" prefWidth="79.0" text="%table.appointments.columns.location" />
+                <TableColumn id="Contact_Name" minWidth="9.0" prefWidth="103.0" text="%table.appointments.columns.contactName" />
+                <TableColumn id="Type" prefWidth="86.0" text="%table.appointments.columns.type" />
+                <TableColumn id="Start" prefWidth="176.0" text="%table.appointments.columns.start" />
+                <TableColumn id="End" prefWidth="155.0" text="%table.appointments.columns.end" />
+                <TableColumn id="Customer_ID" prefWidth="109.0" text="%table.appointments.columns.customerID" />
+            </columns>
+        </TableView>
+        <TextField layoutX="20.0" layoutY="12.0" prefHeight="25.0" prefWidth="216.0" promptText="%textField.appointments.prompt.search" />
+        <Text fill="RED" layoutX="20.0" layoutY="557.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="329.13671875" />
+        <Text fx:id="tableError" fill="RED" layoutX="20.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="216.0" />
+        <Text layoutX="995.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.appointments.labels.appointmentID" textAlignment="CENTER" wrappingWidth="210.0" />
+        <TextField fx:id="appointmentID" disable="true" layoutX="1174.0" layoutY="15.0" prefHeight="25.0" prefWidth="180.0" promptText="%textField.appointments.prompt.appointmentID" />
+        <Text layoutX="995.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.appointments.labels.title" textAlignment="CENTER" wrappingWidth="210.0" />
+        <TextField fx:id="appointmentTitle" layoutX="1174.0" layoutY="62.0" prefHeight="25.0" prefWidth="180.0" promptText="%textField.appointments.prompt.title" />
+        <Text fx:id="appointmentTitleError" fill="RED" layoutX="1174.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="180.0" />
+        <Text layoutX="995.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.appointments.labels.description" textAlignment="CENTER" wrappingWidth="210.0" />
+        <TextField fx:id="appointmentDescription" layoutX="1174.0" layoutY="121.0" prefHeight="25.0" prefWidth="180.0" promptText="%textField.appointments.prompt.description" />
+        <Text fx:id="appointmentDescriptionError" fill="RED" layoutX="1174.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="180.0" />
+        <Text layoutX="995.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.appointments.labels.location" textAlignment="CENTER" wrappingWidth="210.0" />
+        <Text fx:id="appointmentLocationError" fill="RED" layoutX="1174.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="180.0" />
+        <Text layoutX="995.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.appointments.labels.contact" textAlignment="CENTER" wrappingWidth="210.0" />
+        <Text fx:id="appointmentContactError" fill="RED" layoutX="1174.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="180.0" />
+        <Text layoutX="995.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.appointments.labels.type" textAlignment="CENTER" wrappingWidth="210.0" />
+        <Text fx:id="appointmentTypeError" fill="RED" layoutX="1174.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="180.0" />
+        <Text layoutX="995.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.appointments.labels.start" textAlignment="CENTER" wrappingWidth="210.0" />
+        <Text fx:id="startTimeError" fill="RED" layoutX="1174.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="180.0" />
+        <ComboBox id="Contact_Name" fx:id="appointmentContact" layoutX="1174.0" layoutY="235.0" prefHeight="25.0" prefWidth="180.0" promptText="%comboBox.appointments.prompt.contactName" />
+        <TextField fx:id="appointmentLocation" layoutX="1174.0" layoutY="178.0" prefHeight="25.0" prefWidth="180.0" promptText="%textField.appointments.prompt.location" />
+        <Text layoutX="995.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.appointments.labels.end" textAlignment="CENTER" wrappingWidth="210.0" />
+        <Text fx:id="endTimeError" fill="RED" layoutX="1174.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="180.0" />
+        <Text layoutX="995.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.appointments.labels.customerID" textAlignment="CENTER" wrappingWidth="210.0" />
+        <Text fx:id="customerIDError" fill="RED" layoutX="1174.0" layoutY="503.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="180.0" />
+        <Text layoutX="995.0" layoutY="539.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.appointments.labels.userID" textAlignment="CENTER" wrappingWidth="210.0" />
+        <Text fx:id="userIDError" fill="RED" layoutX="1174.0" layoutY="558.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="180.0" />
+        <Text layoutX="365.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.appointments.labels.filter" />
+        <RadioButton fx:id="byMonthToggle" layoutX="506.0" layoutY="17.0" mnemonicParsing="false" onAction="#radioButtonSelected" text="%radioButton.appointments.text.month" />
+        <RadioButton fx:id="byWeekToggle" layoutX="628.0" layoutY="17.0" mnemonicParsing="false" onAction="#radioButtonSelected" text="%radioButton.appointments.text.week" />
+        <RadioButton fx:id="allToggle" layoutX="406.0" layoutY="17.0" mnemonicParsing="false" onAction="#radioButtonSelected" text="%radioButton.appointments.text.all" />
+        <ComboBox id="Type" fx:id="appointmentType" layoutX="1174.0" layoutY="292.0" prefHeight="25.0" prefWidth="180.0" promptText="%comboBox.appointments.prompt.appointmentType" />
+        <ComboBox id="Customer_ID" fx:id="customerID" layoutX="1174.0" layoutY="465.0" prefHeight="25.0" prefWidth="180.0" promptText="%comboBox.appointments.prompt.customerID" />
+        <ComboBox id="User_id" fx:id="userID" layoutX="1174.0" layoutY="522.0" prefHeight="25.0" prefWidth="180.0" promptText="%comboBox.appointments.prompt.userID" />
+        <DatePicker fx:id="startDate" layoutX="1174.0" layoutY="351.0" prefHeight="25.0" prefWidth="103.0" />
+        <DatePicker fx:id="endDate" layoutX="1174.0" layoutY="408.0" prefHeight="25.0" prefWidth="103.0" />
+        <ComboBox id="" fx:id="startTime" layoutX="1275.0" layoutY="351.0" prefHeight="25.0" prefWidth="79.0" promptText="%comboBox.appointments.prompt.startTime" />
+        <ComboBox id="" fx:id="endTime" layoutX="1275.0" layoutY="408.0" prefHeight="25.0" prefWidth="79.0" promptText="%comboBox.appointments.prompt.endTime" />
+    </AnchorPane>
+</VBox>

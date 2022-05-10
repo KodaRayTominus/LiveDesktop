@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="root" prefHeight="523.0" prefWidth="1293.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CustomerDataWindowPaneController">
+    <MenuBar prefWidth="820.0" VBox.vgrow="NEVER">
+        <Menu mnemonicParsing="false" text="%menu.customers">
+            <MenuItem disable="true" mnemonicParsing="false" text="%menu.customers.items.view" />
+            <MenuItem mnemonicParsing="false" onAction="#addCustomer" text="%menu.customers.items.add" />
+            <MenuItem mnemonicParsing="false" onAction="#saveCustomerData" text="%menu.customers.items.save" />
+            <MenuItem mnemonicParsing="false" onAction="#deleteCustomer" text="%menu.customers.items.delete" />
+        </Menu>
+        <Menu mnemonicParsing="false" text="%menu.appointments">
+            <MenuItem mnemonicParsing="false" onAction="#viewAppointments" text="%menu.appointments.items.view" />
+            <MenuItem disable="true" mnemonicParsing="false" text="%menu.appointments.items.add" />
+            <MenuItem disable="true" mnemonicParsing="false" text="%menu.appointments.items.save" />
+            <MenuItem disable="true" mnemonicParsing="false" text="%menu.appointments.items.delete" />
+        </Menu>
+        <Menu mnemonicParsing="false" text="%menu.reports">
+            <MenuItem mnemonicParsing="false" onAction="#getReportAppointments" text="%menu.reports.items.appointments" />
+            <MenuItem mnemonicParsing="false" onAction="#getReportContactSchedule" text="%menu.reports.items.contactSchedule" />
+            <MenuItem mnemonicParsing="false" onAction="#getReportCustomerHistory" text="%menu.reports.items.customerHistory" />
+        </Menu>
+        <Menu mnemonicParsing="false" text="%menu.help">
+            <MenuItem mnemonicParsing="false" onAction="#openJavaDoc" text="%menu.help.items.javaDoc" />
+        </Menu>
+    </MenuBar>
+    <AnchorPane prefWidth="952.0" VBox.vgrow="ALWAYS">
+        <TableView fx:id="customerDataTable" layoutX="20.0" layoutY="46.0" prefHeight="427.0" prefWidth="931.0">
+            <columns>
+                <TableColumn id="Customer_ID" prefWidth="75.0" text="%table.customers.columns.customerID" />
+                <TableColumn id="Customer_Name" prefWidth="108.0" text="%table.customers.columns.name" />
+                <TableColumn id="Address" prefWidth="163.0" text="%table.customers.columns.address" />
+                <TableColumn id="Division" minWidth="0.0" prefWidth="127.0" text="%table.customers.columns.division" />
+                <TableColumn id="Country" minWidth="9.0" prefWidth="97.0" text="%table.customers.columns.country" />
+                <TableColumn id="Postal_Code" prefWidth="69.0" text="%table.customers.columns.postalCode" />
+                <TableColumn id="Phone" prefWidth="133.0" text="%table.customers.columns.phoneNumber" />
+                <TableColumn id="Last_Update" prefWidth="157.0" text="%table.customers.columns.lastUpdate" />
+            </columns>
+        </TableView>
+        <TextField fx:id="customerSearchField" layoutX="20.0" layoutY="10.0" prefHeight="25.0" prefWidth="216.0" promptText="%textField.customers.prompt.search" />
+        <Text fx:id="tableError" fill="RED" layoutX="20.0" layoutY="489.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="329.13671875" />
+        <Text fill="RED" layoutX="20.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="216.0" />
+        <Text layoutX="918.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.customers.labels.customerID" textAlignment="CENTER" wrappingWidth="200.0" />
+        <TextField fx:id="customerID" disable="true" editable="false" layoutX="1087.0" layoutY="64.0" prefHeight="25.0" prefWidth="180.0" promptText="%textField.customers.prompt.customerID" />
+        <Text fx:id="customerIDError" fill="RED" layoutX="1087.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="180.0" />
+        <Text layoutX="918.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.customers.labels.fullName" textAlignment="CENTER" wrappingWidth="200.0" />
+        <TextField fx:id="customerName" layoutX="1087.0" layoutY="124.0" prefHeight="25.0" prefWidth="180.0" promptText="%textField.customers.prompt.name" />
+        <Text fx:id="customerNameError" fill="RED" layoutX="1087.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="180.0" />
+        <Text layoutX="918.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.customers.labels.address" textAlignment="CENTER" wrappingWidth="200.0" />
+        <TextField fx:id="address" layoutX="1087.0" layoutY="183.0" prefHeight="25.0" prefWidth="180.0" promptText="%textField.customers.prompt.address" />
+        <Text fx:id="addressError" fill="RED" layoutX="1087.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="180.0" />
+        <Text layoutX="918.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.customers.labels.country" textAlignment="CENTER" wrappingWidth="200.0" />
+        <Text fx:id="countryError" fill="RED" layoutX="1087.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="180.0" />
+        <Text layoutX="918.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.customers.labels.division" textAlignment="CENTER" wrappingWidth="200.0" />
+        <Text fx:id="divisionError" fill="RED" layoutX="1087.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="180.0" />
+        <Text layoutX="918.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.customers.labels.postalCode" textAlignment="CENTER" wrappingWidth="200.0" />
+        <TextField fx:id="postalCode" layoutX="1087.0" layoutY="354.0" prefHeight="25.0" prefWidth="180.0" promptText="%textField.customers.prompt.postalCode" />
+        <Text fx:id="postalCodeError" fill="RED" layoutX="1087.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="180.0" />
+        <Text layoutX="918.0" layoutY="430.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.customers.labels.phoneNumber" textAlignment="CENTER" wrappingWidth="200.0" />
+        <TextField fx:id="phone" layoutX="1087.0" layoutY="413.0" prefHeight="25.0" prefWidth="180.0" promptText="%textField.customers.prompt.phoneNumber" />
+        <Text fx:id="phoneError" fill="RED" layoutX="1087.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="180.0" />
+        <ComboBox id="Country" fx:id="country" layoutX="1087.0" layoutY="240.0" onAction="#populateDivisionComboBox" prefHeight="25.0" prefWidth="180.0" promptText="%comboBox.customers.prompt.country" />
+        <ComboBox id="Division" fx:id="division" layoutX="1087.0" layoutY="297.0" prefHeight="25.0" prefWidth="180.0" promptText="%comboBox.customers.prompt.division" />
+    </AnchorPane>
+</VBox>

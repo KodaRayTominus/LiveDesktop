@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="646.0" prefWidth="1077.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ContactScheduleReportWindowPaneController">
+    <AnchorPane VBox.vgrow="ALWAYS">
+    <ComboBox id="Contact_Name" fx:id="contactComboBox" layoutX="14.0" layoutY="14.0" onAction="#populateTable" prefWidth="150.0" promptText="%comboBox.contactReport.prompt.contact" />
+    <TableView fx:id="contactDataTable" layoutX="14.0" layoutY="48.0" prefHeight="579.0" prefWidth="1047.0">
+        <columns>
+            <TableColumn id="Appointment_ID" prefWidth="124.0" text="%table.contactReport.columns.appointmentID" />
+            <TableColumn id="Title" prefWidth="103.0" text="%table.contactReport.columns.title" />
+            <TableColumn id="Description" prefWidth="238.0" text="%table.contactReport.columns.description" />
+            <TableColumn id="Type" prefWidth="69.0" text="%table.contactReport.columns.type" />
+            <TableColumn id="Start" prefWidth="167.0" text="%table.contactReport.columns.start" />
+            <TableColumn id="End" prefWidth="184.0" text="%table.contactReport.columns.end" />
+            <TableColumn id="Customer_ID" prefWidth="159.0" text="%table.contactReport.columns.customerID" />
+        </columns>
+    </TableView>
+    <Text layoutX="406.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.contactReport.header.header">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Text>
+    </AnchorPane>
+</VBox>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="root" prefHeight="327.0" prefWidth="322.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginWindowPaneController">
+    <AnchorPane prefHeight="400.0" prefWidth="556.0" VBox.vgrow="ALWAYS">
+        <TextField fx:id="userIdField" layoutX="87.0" layoutY="98.0" promptText="%textField.login.username.prompt" />
+        <TextField fx:id="userPasswordField" layoutX="87.0" layoutY="154.0" promptText="%textField.login.password.prompt" />
+        <Text fx:id="userIdErrorText" fill="RED" layoutX="87.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="149.0" />
+        <Text fx:id="userPasswordErrorText" fill="RED" layoutX="87.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="149.0" />
+        <Button layoutX="86.0" layoutY="211.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="149.0" text="%button.login.login" />
+        <Text layoutX="1.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.login.header.login" textAlignment="CENTER" wrappingWidth="320.0">
+            <font>
+                <Font size="29.0" />
+            </font>
+        </Text>
+        <Label fx:id="zoneIdLabel" layoutX="196.0" layoutY="289.0" prefHeight="17.0" prefWidth="123.0" />
+        <Text layoutX="119.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.login.label.zoneId" />
+    </AnchorPane>
+</VBox>
